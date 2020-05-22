@@ -4,7 +4,7 @@
 
 #define MAXLINELENGTH 1000
 
-/** Global Variables */
+
 char *rTypeOpcodes = "add|nor";
 char *iTypeOpcodes = "lw|sw|beq";
 char *jTypeOpcodes = "jalr";
@@ -21,13 +21,13 @@ typedef struct LABEL
 LABEL labels;
 int labelCount;
 
-/** Utils Functions */
+/* Utils Func */
 int readAndParse(FILE *, char *, char *, char *, char *, char *);
 
 void buildLabels(FILE *readFilePtr);
 int getValueInLabels(char *);
 
-/** Error Check Functions */
+/* Error Check Func */
 int isNumber(char *);
 int isAlphabet(char *);
 
@@ -38,7 +38,7 @@ int isInOpcodes(char *, char *);
 
 void abortWithError(char *string);
 
-/** Formatting Functions */
+/* Formatting Func */
 int formatRTypeInst(char *opcode, char *reg0, char *reg1, char *destReg);
 int formatITypeInst(char *opcode, char *reg0, char *reg1, char *offset, int pc);
 int formatJTypeInst(char *reg0, char *reg1);
@@ -128,13 +128,16 @@ int main(int argc, char *argv[])
     exit(0);
 }
 
-/**
+
+/*
  * Read and parse a line of the assembly-language file. Fields are returned * in label, opcode, arg0, arg1, arg2 (these strings must have memory already * allocated to them).
  * Return values:
  * 0 if reached end of file 
  * 1 if all went well
  * exit(1) if line is too long.
- */
+ */  
+
+
 int readAndParse(FILE *inFilePtr, char *label, char *opcode, char *arg0, char *arg1, char *arg2)
 {
     char line[MAXLINELENGTH];
@@ -166,14 +169,14 @@ int readAndParse(FILE *inFilePtr, char *label, char *opcode, char *arg0, char *a
         ptr += strlen(label);
     }
 
-    /**
+    /*
      * Parse the rest of the line. Would be nice to have real regular * expressions, but scanf will suffice.
      */
     sscanf(ptr, "%*[\t\n\r ]%[^\t\n\r ]%*[\t\n\r ]%[^\t\n\r ]%*[\t\n\r ]%[^\t\n\r ]%*[\t\n\r ]%[^\t\n\r ]", opcode, arg0, arg1, arg2);
     return (1);
 }
 
-/**
+/*
  * Newly Defined Func]
  * 
  * Build Label Data for Assembler
@@ -285,7 +288,7 @@ int isAlphabet(char *string)
 }
 
 /**
- * Newly Defined Func]
+ * Newly Defined Func
  * 
  * Returns Check If Label Rules
  * 
