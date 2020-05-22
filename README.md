@@ -1,6 +1,4 @@
-### readme.md
-
-- Project 1 - Computer Architecture (Summer 2020)
+### Project 1 - Computer Architecture (Summer 2020)  
 - 2015012588 Hong Jun Yeong major in Industrial Engineering
 - LC-2K Instruction-Set Architecture  
   
