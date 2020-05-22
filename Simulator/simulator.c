@@ -313,16 +313,7 @@ void executeITypeInst(stateType *statePtr, int opcode, int arg0, int arg1, int o
     }
 }
 
-/**
- * Newly Defined Func]
- * 
- * JALR: (opcode 5)
- * First store PC+1 into arg1, where PC is the address of this jalr instruction.
- * Then branch to the address contained in arg0.
- * ==
- * Note that this implies if arg0 and arg1 refer to the same register, the net effect will be jumping to PC+1.
- * 
- * 
+
  * Format
  * bits 24-22: opcode
  * bits 21-19: reg A
